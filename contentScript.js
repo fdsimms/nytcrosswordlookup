@@ -121,7 +121,7 @@ window.onload = () => {
             const char = columns[i][j];
             if (!char || j === columns[i].length - 1) {
                 if (currentColumnWord) {
-                    currentColumnWord.endIdx = j - 1;
+                    currentColumnWord.endIdx = char ? j : j - 1;
                     currentColumnWord.text = char ? `${currentColumnWord.text}${char}` : currentColumnWord.text;
                     columnWords.push(currentColumnWord);
                     currentColumnWord = null;  
