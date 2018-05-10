@@ -13,22 +13,15 @@ const fetchWikipediaSearchResultSummaries = async text => {
     const summaries = searchJson && searchJson[2];
     const firstRealSummary = summaries && summaries.find(summary => (
         summary && !summary.includes("may refer to:") && !summary.includes("several meanings:")
-    )) 
+    ))
     return firstRealSummary;
-}
-const fetchWiktionarySearchResult = async text => {
-    const search = await fetch(buildSearchEndpoint(text), {
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8",
-            "Origin": "*"
-        }
-    });
-    const searchJson = await search.json();
-    console.log(searchJson[1][1]);
-    return searchJson[1][1];
 }
 
 window.onload = () => {
+  const resetButton = document.querySelector(".layout > div > div > ul > div button");
+  // this button only appears when puzzle has been completed i think?
+  const isPuzzleDone = resetButton && resetButton.innerHTML === "reset";
+  if (!isPuzzleDone) { return; }
     const cells = document.querySelectorAll('g[data-group=cells] g');
     const rows = [];
     const columns = [];
@@ -37,23 +30,19 @@ window.onload = () => {
         const cell = cells[i];
         const positionElement = cell.querySelector('rect');
         const yValue = positionElement.getAttribute("y");
-        const yIndex = (parseInt(yValue) - 3) / 33;
+        const yIndex = Math.ceil((parseInt(yValue) - 3) / 33);
         const xValue = positionElement.getAttribute("x");
-        const xIndex = (parseInt(xValue) - 3) / 33;
+        const xIndex = Math.ceil((parseInt(xValue) - 3) / 33);
         const textElement = cell.querySelector('text[text-anchor=middle]');
         const text = textElement ? textElement.innerHTML : null;
         if (text) {
             cell.addEventListener("click", async ({ target }) => {
-                const resetButton = document.querySelector(".layout > div > div > ul > div button");
-                // this button only appears when puzzle has been completed i think?
-                const isPuzzleDone = resetButton && resetButton.innerHTML === "reset";
-                if (!isPuzzleDone) { return; }
                 // ensure that our word arrays have been populated
                 if (rowWords.length > 0 && columnWords.length > 0) {
                     const yValue = positionElement.getAttribute("y");
-                    const yIndex = (parseInt(yValue) - 3) / 33;
+                    const yIndex = Math.ceil((parseInt(yValue) - 3) / 33);
                     const xValue = positionElement.getAttribute("x");
-                    const xIndex = (parseInt(xValue) - 3) / 33;
+                    const xIndex = Math.ceil((parseInt(xValue) - 3) / 33);
                     const columnWord = columnWords.find(word => (
                         word.column === xIndex && yIndex >= word.startIdx && yIndex <= word.endIdx
                     ))
@@ -98,8 +87,8 @@ window.onload = () => {
                     currentRowWord.endIdx = char ? j : j - 1;
                     currentRowWord.text = char ? `${currentRowWord.text}${char}` : currentRowWord.text;
                     rowWords.push(currentRowWord);
-                    currentRowWord = null;  
-                }              
+                    currentRowWord = null;
+                }
             } else if (char && !currentRowWord) {
                 currentRowWord = {
                     startIdx: j,
@@ -124,8 +113,8 @@ window.onload = () => {
                     currentColumnWord.endIdx = char ? j : j - 1;
                     currentColumnWord.text = char ? `${currentColumnWord.text}${char}` : currentColumnWord.text;
                     columnWords.push(currentColumnWord);
-                    currentColumnWord = null;  
-                }              
+                    currentColumnWord = null;
+                }
             } else if (char && !currentColumnWord) {
                 currentColumnWord = {
                     startIdx: j,
