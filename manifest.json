@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "XWordThing",
+  "description": "",
+  "version": "0.0.0.1",
+
+  "browser_action": {
+    "default_icon": "assets/icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [{
+    "matches": ["*://*.nytimes.com/crosswords/*/*"],
+    "css": ["index.css"],
+    "js": ["contentScript.js"]
+  }],
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  }
+}

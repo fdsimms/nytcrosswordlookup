@@ -1,0 +1,287 @@
+html, body, h1, h2, ul, li, h3, a, p, div, input, form,
+label, button {
+  background: transparent;
+  border:  0;
+  color: inherit;
+  margin:  0;
+  outline: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  box-shadow: none;
+  vertical-align: inherit;
+  text-decoration: none;
+  cursor: default;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.group:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.timer-button {
+  float: right;
+  background: #A9A9FF;
+  font-size: 12px;
+  color: white;
+  border-radius: 10px;
+  margin-left: 1px;
+}
+
+.remove-timer-button {
+  background: red;
+}
+
+button, .button {
+  border-radius: 15px;
+  margin: 2.5px auto;
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.add-timer-button {
+  background: #A9A9FF;
+  padding: 7.5px;
+  font-size: 12px;
+}
+
+.control-button {
+  float: right;
+  padding: 5px;
+  min-width: 56px;
+  background: #A9A9FF;
+  margin-left: 5px;
+  font-size: 10px;
+}
+
+.timer-form {
+  display: block;
+  width: 85%;
+  margin: 10px auto 0 auto;
+}
+
+.text-description {
+  margin: 0 auto 10px auto;
+  width: 215px;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+}
+
+input {
+  display: block;
+  cursor: text;
+}
+
+.time-input {
+  margin: 0 0.5px;
+  float: left;
+  width: 34px;
+  text-align: left;
+  padding: 2.5px 0 2.5px 5px;
+}
+
+.text-description, .time-input {
+  font-size: 14px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.time-inputs {
+  display: block;
+  position: relative;
+  width: 158px;
+  margin: 5px auto 10px auto;
+}
+
+.timer {
+  display: block;
+  width: 85%;
+  margin: auto;
+  border-bottom: 2px solid #ddd;
+  border-left: 2px solid #ddd;
+  padding: 5px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.timer:first-child {
+  border-top-left-radius: 0px;
+}
+
+.input-colon {
+  float: left;
+  font-size: 20px;
+  margin: 0 5px;
+  top: -2px;
+  font-style: normal;
+  position: relative;
+}
+
+.timer-data {
+  float: left;
+  min-height: 40px;
+  margin-right: 5px;
+  display: block;
+  width: 195px;
+  text-align: left;
+}
+
+.app {
+  display: block;
+  width: 375px;
+  padding-bottom: 10px;
+}
+
+.timer-text-description {
+  font-size: 14px;
+  font-style: italic;
+  color: #aaa;
+  font-weight: bold;
+}
+
+.fa {
+  width: 13px;
+}
+
+.obscure {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.fa-spinner {
+  color: #7964ED;
+  width: 355px;
+  font-size: 3em;
+  padding: 10px;
+  text-shadow: 0px 0px 1px black;*/
+}
+
+button:hover, .button:hover {
+  background: #C4C4FF;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+
+.remove-timer-button:hover {
+  background: #FF8484;
+}
+
+button:disabled, input:disabled, textarea:disabled {
+  color: #eee;
+}
+
+button:disabled, .add-timer-button:disabled {
+  background: #C4C4FF;
+  cursor: default;
+}
+
+.header-bar {
+  background: #7964ED;
+  height: 50px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+.app-title {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px black;
+  font-size: 18px;
+}
+
+.timer-buttons {
+  margin: 10px auto 20px auto;
+  border-bottom: 2px solid #ddd;
+  padding: 0 7px 15px 7px;
+  width: 82%;
+}
+
+.timer-buttons.hide-border {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.reset-button {
+  font-size: 10px;
+}
+
+.add-timer-button {
+  clear: both;
+  width: 150px;
+}
+
+.time-changer {
+  position: absolute;
+  font-size: 0.6em;
+  cursor: pointer;
+}
+
+.time-changer:hover,
+.next-page-button:hover,
+.prev-page-button:hover {
+  color: #aaa;
+}
+
+.time-changer.fa-arrow-up {
+  top: 3px;
+}
+
+.time-changer.fa-arrow-down {
+  top: 13px;
+}
+
+.decrease-seconds,
+.increase-seconds {
+  right: 3px;
+}
+
+.increase-minutes,
+.decrease-minutes {
+  right: 61px;
+}
+
+.increase-hours,
+.decrease-hours {
+  right: 119px;
+}
+
+.pagination-buttons {
+  padding: 5px;
+}
+.next-page-button,
+.prev-page-button {
+  cursor: pointer;
+}
