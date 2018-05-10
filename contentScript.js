@@ -29,10 +29,6 @@ const fetchWiktionarySearchResult = async text => {
 }
 
 window.onload = () => {
-    const resetButton = document.querySelector(".layout > div > div > ul > div button");
-    // this button only appears when puzzle has been completed i think?
-    const isPuzzleDone = resetButton && resetButton.innerHTML === "reset";
-    if (!isPuzzleDone) { return; }
     const cells = document.querySelectorAll('g[data-group=cells] g');
     const rows = [];
     const columns = [];
@@ -48,6 +44,10 @@ window.onload = () => {
         const text = textElement ? textElement.innerHTML : null;
         if (text) {
             cell.addEventListener("click", async ({ target }) => {
+                const resetButton = document.querySelector(".layout > div > div > ul > div button");
+                // this button only appears when puzzle has been completed i think?
+                const isPuzzleDone = resetButton && resetButton.innerHTML === "reset";
+                if (!isPuzzleDone) { return; }
                 // ensure that our word arrays have been populated
                 if (rowWords.length > 0 && columnWords.length > 0) {
                     const yValue = positionElement.getAttribute("y");
